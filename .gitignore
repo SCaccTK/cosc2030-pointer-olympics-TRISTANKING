@@ -30,6 +30,3 @@
 *.exe
 *.out
 *.app
-
-# Ignore all files without an extension in the root directory
-/*.
