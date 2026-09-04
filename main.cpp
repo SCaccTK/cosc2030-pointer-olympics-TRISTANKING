@@ -25,18 +25,12 @@ int main() {
         cin >> *(scores +i);
     }
 
-
-    // Get scores from user
-
-    // Sort scores
-
-    // Calculate average score
-
-    // Award medals
-
-    // Display results
-
-    // Deallocate memory for scores array
-
+    sortScores(scores, numScores);
+    double average = calculateAverage(scores, numScores);
+    awardMedals(scores, numScores);
+    displayResults(scores, numScores, average);
+    delete[] scores;
     return 0;
+
 }
+
