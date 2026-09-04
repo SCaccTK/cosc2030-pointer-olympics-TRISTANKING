@@ -34,3 +34,35 @@ int main() {
 
 }
 
+void awardMedals(double* scores, int numScores)
+{
+    cout << "\n=== Medal Ceremony ===\n";
+    if (numScores >= 3)
+    {
+        cout << "Gold : " << *(scores + (numScores -1)) << '\n*'; //best rewaRD
+        cout << "Silver : " << *(scores + (numScores -2)) << '\n*'; // 2ND PLACE
+        cout << "Bronze : " << *(scores + (numScores -3)) << '\n*'; // LAST PLACE but not really
+    }
+    else 
+    cout << "not enough medals for contestants"
+}
+
+void sortScores(double* scores, int numScores)
+{
+    for (int i = 0; i < numScores -1; ++i)
+    {
+        int minIndex = i;
+        for (int j = i + 1; j < numScores; ++j)
+        {
+            if (*(scores + j) < *(scores + minIndex))
+                minIndex = j;
+        }
+
+        if (minIndex != i)
+        {
+            double temp = *(scores + i);
+            *(scores + i) = *(scores + minIndex);
+            *(scores + minIndex) = temp;
+        }
+    }
+}
