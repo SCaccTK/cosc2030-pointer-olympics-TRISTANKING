@@ -18,7 +18,7 @@ int main() {
     cin >> numScores;
     double* scores = new double[numScores]; // Dynamically allocate array for scores
 
-    cout << "\nEnter the scores of " << numScores << "atheletes:\n";
+    cout << "\nEnter the scores of " << numScores  << " atheletes:\n";
     for (int i = 0; i < numScores; ++i)
     {
         cout << " Athelete " << (i + 1) << ": ";
@@ -79,10 +79,12 @@ void displayResults(double* scores, int numScores, double average)
 {
     cout << "\n=== Sorted Scores (Ascending) ===\n";
     cout << "RANK   ATHELETE    SCORE\n";
-    cout << "\n                          \n";
-    for (int i = 0; i < numScores; ++i)
-        cout << (i + 1) << "\tAthelete " << (i + 1)
-            << "\t" << fixed << setprecision(2) << *(scores + i) << '\n';
-        cout << "                      \n";
-        cout << "\nAverage Score : " << fixed << setprecision(2) << average << '\n';
+    for (int i = numScores - 1; i >= 0; --i)
+    {
+        cout << (numScores - i)
+            << "\tAthelete " << (i + 1)
+            << "\t"
+            << fixed << setprecision(2)
+            << *(scores + i) << '\n';
+    }
 }
