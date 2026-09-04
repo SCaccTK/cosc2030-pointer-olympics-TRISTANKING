@@ -39,12 +39,12 @@ void awardMedals(double* scores, int numScores)
     cout << "\n=== Medal Ceremony ===\n";
     if (numScores >= 3)
     {
-        cout << "Gold : " << *(scores + (numScores -1)) << '\n*'; //best rewaRD
-        cout << "Silver : " << *(scores + (numScores -2)) << '\n*'; // 2ND PLACE
-        cout << "Bronze : " << *(scores + (numScores -3)) << '\n*'; // LAST PLACE but not really
+        cout << "Gold : " << *(scores + (numScores -1)) << '\n'; //best rewaRD
+        cout << "Silver : " << *(scores + (numScores -2)) << '\n'; // 2ND PLACE
+        cout << "Bronze : " << *(scores + (numScores -3)) << '\n'; // LAST PLACE but not really
     }
     else 
-    cout << "not enough medals for contestants"
+    cout << "not enough medals for contestants";
 }
 
 void sortScores(double* scores, int numScores)
@@ -65,4 +65,24 @@ void sortScores(double* scores, int numScores)
             *(scores + minIndex) = temp;
         }
     }
+}
+
+double calculateAverage(double* scores, int numScores)
+{
+    double sum = 0.0;
+    for (int i = 0; i < numScores; ++i)
+        sum += *(scores + i);
+    return sum / numScores;
+}
+
+void displayResults(double* scores, int numScores, double average)
+{
+    cout << "\n=== Sorted Scores (Ascending) ===\n";
+    cout << "RANK   ATHELETE    SCORE\n";
+    cout << "\n                          \n";
+    for (int i = 0; i < numScores; ++i)
+        cout << (i + 1) << "\tAthelete " << (i + 1)
+            << "\t" << fixed << setprecision(2) << *(scores + i) << '\n';
+        cout << "                      \n";
+        cout << "\nAverage Score : " << fixed << setprecision(2) << average << '\n';
 }
